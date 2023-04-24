@@ -32,7 +32,7 @@ def show_update_delete(request, id):
         return Response(serializer.data)
 
     elif request.method == 'PUT':
-        serializer = TodoSerializer(data=request.data)
+        serializer = TodoSerializer(todo, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
